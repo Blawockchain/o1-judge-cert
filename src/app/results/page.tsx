@@ -80,11 +80,36 @@ export default function ResultsPage() {
     day: "numeric",
   });
 
-  function shareTwitter() {
+  async function shareTwitter() {
     const text = encodeURIComponent(
-      `Just got approved for the O1 Visa by Danveer Technologies 🚀 My extraordinary ability has been recognized. Expires April 2. See for yourself: https://o1-judge-cert-work.vercel.app #Judgeathon #OnlyJudges #ExtraordinaryAbility`
+      `I just got approved for the O1 Visa. My extraordinary ability has been officially recognized by Danveer Technologies. https://o1-judge-cert-work.vercel.app`
     );
-    window.open(`https://twitter.com/intent/tweet?text=${text}`, "_blank");
+    
+    // Generate certificate image as PNG
+    if (letterRef.current) {
+      try {
+        const { default: html2canvas } = await import("html2canvas");
+        const canvas = await html2canvas(letterRef.current, { scale: 2, backgroundColor: "#ffffff" });
+        const imageUrl = canvas.toDataURL("image/png");
+        
+        // Open Twitter with text, user can attach image
+        window.open(`https://twitter.com/intent/tweet?text=${text}`, "_blank");
+        
+        // Copy image to clipboard for easy pasting
+        canvas.toBlob((blob) => {
+          if (blob) {
+            navigator.clipboard.write([
+              new ClipboardItem({ "image/png": blob })
+            ]).catch(() => {
+              // Silently fail if clipboard not available
+            });
+          }
+        });
+      } catch (err) {
+        // Fallback: just open Twitter
+        window.open(`https://twitter.com/intent/tweet?text=${text}`, "_blank");
+      }
+    }
   }
 
   function shareLinkedIn() {

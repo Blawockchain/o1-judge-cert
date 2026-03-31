@@ -65,10 +65,10 @@ function FAQSection() {
 }
 
 const SPEAKERS = [
-  { name: "Priya Nair", role: "Head of Recognition", org: "Danveer Technologies", avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=PriyaNair&backgroundColor=b6e3f4" },
-  { name: "David Stern", role: "Judging Committee", org: "Judgeathon 2026", avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=DavidStern&backgroundColor=d1d4f9" },
-  { name: "Keiko Murakami", role: "Ability Assessor", org: "Danveer Technologies", avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=KeikoMurakami&backgroundColor=ffd5dc" },
-  { name: "Arjun Mehta", role: "Program Director", org: "Danveer Technologies", avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=ArjunMehta&backgroundColor=c0aede" },
+  { name: "Angad Bedi", role: "Head of Recognition", org: "Danveer Technologies", avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=AngadBedi&backgroundColor=b6e3f4" },
+  { name: "Savi Mehta", role: "Judging Committee", org: "Judgeathon 2026", avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=SaviMehta&backgroundColor=d1d4f9" },
+  { name: "Reyansh Singh", role: "Ability Assessor", org: "Danveer Technologies", avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=ReyanshSingh&backgroundColor=ffd5dc" },
+  { name: "Diya Patel", role: "Program Director", org: "Danveer Technologies", avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=DiyaPatel&backgroundColor=c0aede" },
 ];
 
 const heroWords = ["The", "World's", "First"];
