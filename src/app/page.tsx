@@ -21,25 +21,36 @@ export default function Home() {
               Evaluate cutting-edge projects at world-class hackathons and earn
               O1 visa sponsorship through demonstrated expertise.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/register" className="btn-primary text-base py-3 px-8">
+            <div className="flex flex-col items-center gap-4 max-w-md mx-auto">
+              <Link
+                href="/register"
+                className="btn-primary text-base py-3.5 px-8 w-full"
+              >
                 Apply as Judge
               </Link>
-              <a href="#program" className="btn-secondary">
-                View Program Details
-              </a>
-              <a href="#stories" className="btn-secondary">
-                See Success Stories
-              </a>
+              <div className="flex flex-col items-center gap-2 mt-1">
+                <a
+                  href="#program"
+                  className="text-sm text-gray-500 hover:text-[var(--color-primary)] transition-colors"
+                >
+                  View Program Details &darr;
+                </a>
+                <a
+                  href="#stories"
+                  className="text-sm text-gray-500 hover:text-[var(--color-primary)] transition-colors"
+                >
+                  See Success Stories &darr;
+                </a>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Stats */}
-        <section className="bg-[var(--color-cream)] py-16 px-6">
+        <section className="border-y border-gray-100 py-16 px-6">
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>
-              <p className="text-3xl font-bold text-[var(--color-navy)]">
+              <p className="text-3xl font-bold text-[var(--color-primary)]">
                 2,400+
               </p>
               <p className="text-sm text-gray-500 mt-1">
@@ -47,13 +58,15 @@ export default function Home() {
               </p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-[var(--color-navy)]">98%</p>
+              <p className="text-3xl font-bold text-[var(--color-primary)]">
+                98%
+              </p>
               <p className="text-sm text-gray-500 mt-1">
                 I-140 approval rate
               </p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-[var(--color-navy)]">
+              <p className="text-3xl font-bold text-[var(--color-primary)]">
                 14 days
               </p>
               <p className="text-sm text-gray-500 mt-1">
@@ -73,9 +86,9 @@ export default function Home() {
               A straightforward path from hackathon evaluation to O1 visa
               eligibility.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="card">
-                <div className="w-10 h-10 rounded-lg bg-orange-50 text-[var(--color-primary)] flex items-center justify-center font-bold text-lg mb-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="card-minimal">
+                <div className="w-10 h-10 rounded-lg bg-blue-50 text-[var(--color-primary)] flex items-center justify-center font-bold text-lg mb-4">
                   1
                 </div>
                 <h3 className="font-semibold text-[var(--color-navy)] mb-2">
@@ -86,8 +99,8 @@ export default function Home() {
                   against USCIS extraordinary ability criteria within 48 hours.
                 </p>
               </div>
-              <div className="card">
-                <div className="w-10 h-10 rounded-lg bg-orange-50 text-[var(--color-primary)] flex items-center justify-center font-bold text-lg mb-4">
+              <div className="card-minimal">
+                <div className="w-10 h-10 rounded-lg bg-blue-50 text-[var(--color-primary)] flex items-center justify-center font-bold text-lg mb-4">
                   2
                 </div>
                 <h3 className="font-semibold text-[var(--color-navy)] mb-2">
@@ -99,8 +112,8 @@ export default function Home() {
                   recognition.
                 </p>
               </div>
-              <div className="card">
-                <div className="w-10 h-10 rounded-lg bg-orange-50 text-[var(--color-primary)] flex items-center justify-center font-bold text-lg mb-4">
+              <div className="card-minimal">
+                <div className="w-10 h-10 rounded-lg bg-blue-50 text-[var(--color-primary)] flex items-center justify-center font-bold text-lg mb-4">
                   3
                 </div>
                 <h3 className="font-semibold text-[var(--color-navy)] mb-2">
@@ -116,13 +129,13 @@ export default function Home() {
         </section>
 
         {/* Success Stories */}
-        <section id="stories" className="bg-[var(--color-cream)] py-20 px-6">
+        <section id="stories" className="border-y border-gray-100 py-20 px-6">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold text-[var(--color-navy)] mb-10 text-center">
               Success Stories
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="card">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="card-minimal">
                 <p className="text-sm text-gray-600 leading-relaxed mb-4">
                   &ldquo;I was skeptical at first, but the Devfolio team walked
                   me through every step. I received my O1 approval in just 12
@@ -142,7 +155,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="card">
+              <div className="card-minimal">
                 <p className="text-sm text-gray-600 leading-relaxed mb-4">
                   &ldquo;The judging experience itself was valuable. Building an
                   O1 case around it was the bonus I didn&apos;t expect.
@@ -158,6 +171,26 @@ export default function Home() {
                     </p>
                     <p className="text-xs text-gray-400">
                       Product Designer, Figma
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="card-minimal">
+                <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                  &ldquo;Genuinely remarkable program. The judging work was
+                  fulfilling, and the visa sponsorship came through faster than
+                  expected. Would definitely recommend.&rdquo;
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-[var(--color-navy-light)] rounded-full flex items-center justify-center text-white text-xs font-semibold">
+                    SS
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-[var(--color-navy)]">
+                      Sonal Shrivastava
+                    </p>
+                    <p className="text-xs text-gray-400">
+                      Product Manager, Sequoia
                     </p>
                   </div>
                 </div>
