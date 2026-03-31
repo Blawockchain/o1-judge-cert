@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -63,12 +64,23 @@ const CRITERIA = [
   "Design Quality",
 ];
 
+const ACCENT_COLORS = ["#6366f1", "#ec4899", "#f59e0b", "#10b981", "#8b5cf6"];
+
 interface ProjectScore {
   scores: Record<string, number>;
   comment: string;
 }
 
 type Scores = Record<number, ProjectScore>;
+
+const stagger = {
+  show: { transition: { staggerChildren: 0.08 } },
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+};
 
 export default function JudgePage() {
   const router = useRouter();
@@ -110,6 +122,12 @@ export default function JudgePage() {
     );
   }
 
+  function scoredCount(): number {
+    return PROJECTS.filter((_, idx) =>
+      CRITERIA.every((c) => scores[idx]?.scores?.[c] > 0)
+    ).length;
+  }
+
   function handleSubmit() {
     if (!allScored()) return;
     setSubmitting(true);
@@ -122,107 +140,162 @@ export default function JudgePage() {
   return (
     <>
       <Header />
-      <main className="py-12 px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="mb-10">
-            <p className="text-xs font-medium tracking-widest uppercase text-[var(--color-primary)] mb-2">
-              Judging Portal
-            </p>
-            <h1 className="text-3xl font-bold text-[var(--color-navy)] mb-2">
-              {judgeName ? `Welcome, ${judgeName}` : "Project Evaluation"}
-            </h1>
-            <p className="text-gray-500">
-              Rate each project across four criteria. All scores are required
-              before submission. Your evaluations will be used in your O1 visa
-              extraordinary ability assessment.
-            </p>
-          </div>
 
-          <div className="space-y-8">
-            {PROJECTS.map((project, idx) => (
-              <div key={idx} className="card">
-                <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
-                  <div>
-                    <h2 className="text-lg font-semibold text-[var(--color-navy)]">
-                      {project.name}
-                    </h2>
-                    <p className="text-xs text-[var(--color-primary)] font-medium">
-                      {project.hackathon}
-                    </p>
-                    <p className="text-xs text-gray-400 mt-1">
-                      Team: {project.team.join(", ")}
-                    </p>
-                  </div>
-                  <div className="flex gap-2 flex-wrap">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-xs px-2 py-1 bg-gray-50 text-gray-500 rounded"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <p className="text-sm text-gray-600 mb-5 leading-relaxed">
-                  {project.description}
-                </p>
-
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
-                  {CRITERIA.map((criterion) => (
-                    <div key={criterion}>
-                      <label className="block text-xs font-medium text-gray-500 mb-1">
-                        {criterion}
-                      </label>
-                      <select
-                        className="input-field text-sm py-2"
-                        value={scores[idx]?.scores?.[criterion] || ""}
-                        onChange={(e) =>
-                          setScore(idx, criterion, parseInt(e.target.value))
-                        }
-                      >
-                        <option value="">--</option>
-                        {Array.from({ length: 10 }, (_, i) => i + 1).map(
-                          (n) => (
-                            <option key={n} value={n}>
-                              {n}
-                            </option>
-                          )
-                        )}
-                      </select>
-                    </div>
-                  ))}
-                </div>
-
-                <textarea
-                  className="input-field text-sm resize-none"
-                  rows={2}
-                  placeholder="Comments (optional)"
-                  value={scores[idx]?.comment || ""}
-                  onChange={(e) => setComment(idx, e.target.value)}
+      {/* Sticky progress bar */}
+      <div className="sticky top-[73px] z-40 bg-white/90 backdrop-blur-sm border-b border-slate-100 py-3 px-6">
+        <div className="max-w-4xl mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <span className="text-sm font-semibold text-[var(--color-navy)]">
+              Project {Math.min(scoredCount() + 1, 5)} of 5
+            </span>
+            <div className="flex gap-1.5">
+              {PROJECTS.map((_, idx) => (
+                <div
+                  key={idx}
+                  className={`w-2.5 h-2.5 rounded-full transition-colors ${
+                    CRITERIA.every((c) => scores[idx]?.scores?.[c] > 0)
+                      ? "bg-indigo-500"
+                      : "bg-slate-200"
+                  }`}
                 />
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
+          {judgeName && (
+            <p className="text-xs text-slate-400">
+              Judging as <span className="font-semibold text-[var(--color-navy)]">{judgeName}</span>
+            </p>
+          )}
+        </div>
+      </div>
 
-          <div className="mt-10 text-center">
-            <button
-              onClick={handleSubmit}
-              disabled={!allScored() || submitting}
-              className="btn-primary py-3 px-10 disabled:opacity-40 disabled:cursor-not-allowed"
-            >
-              {submitting
-                ? "Processing Evaluations..."
-                : "Submit All Evaluations"}
-            </button>
-            {!allScored() && (
-              <p className="text-xs text-gray-400 mt-3">
-                Please rate all criteria for every project before submitting.
-              </p>
-            )}
-          </div>
+      <main className="py-10 px-6">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            className="space-y-6"
+            initial="hidden"
+            animate="show"
+            variants={stagger}
+          >
+            {PROJECTS.map((project, idx) => (
+              <motion.div
+                key={idx}
+                variants={fadeUp}
+                className="bg-white rounded-xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+              >
+                {/* Colored left accent + content */}
+                <div className="flex">
+                  <div
+                    className="w-1.5 shrink-0"
+                    style={{ backgroundColor: ACCENT_COLORS[idx] }}
+                  />
+                  <div className="flex-1 p-6">
+                    <div className="flex flex-col md:flex-row md:items-start justify-between gap-3 mb-3">
+                      <div>
+                        <h2 className="text-lg font-bold text-[var(--color-navy)]">
+                          {project.name}
+                        </h2>
+                        <span className="inline-block text-[10px] font-semibold uppercase tracking-wider bg-indigo-50 text-indigo-600 px-2 py-0.5 rounded-full mt-1">
+                          {project.hackathon}
+                        </span>
+                      </div>
+                      <div className="flex gap-2 flex-wrap">
+                        {project.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="text-xs px-2.5 py-1 bg-slate-50 text-slate-500 rounded-md font-medium"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Team avatars */}
+                    <div className="flex items-center gap-1.5 mb-3">
+                      {project.team.map((member) => (
+                        <div
+                          key={member}
+                          className="w-7 h-7 rounded-full bg-slate-100 border-2 border-white flex items-center justify-center text-[10px] font-bold text-slate-500"
+                          title={member}
+                        >
+                          {member.split(" ").map((n) => n[0]).join("")}
+                        </div>
+                      ))}
+                      <span className="text-xs text-slate-400 ml-1.5">
+                        {project.team.join(", ")}
+                      </span>
+                    </div>
+
+                    <p className="text-sm text-gray-500 mb-5 leading-relaxed">
+                      {project.description}
+                    </p>
+
+                    {/* Score pill buttons */}
+                    <div className="space-y-3 mb-4">
+                      {CRITERIA.map((criterion) => (
+                        <div key={criterion}>
+                          <label className="block text-xs font-medium text-slate-500 mb-1.5">
+                            {criterion}
+                          </label>
+                          <div className="flex gap-1.5 flex-wrap">
+                            {Array.from({ length: 10 }, (_, i) => i + 1).map(
+                              (n) => {
+                                const selected = scores[idx]?.scores?.[criterion] === n;
+                                return (
+                                  <button
+                                    key={n}
+                                    type="button"
+                                    onClick={() => setScore(idx, criterion, n)}
+                                    className={`w-9 h-9 rounded-lg text-sm font-semibold transition-all ${
+                                      selected
+                                        ? "bg-indigo-500 text-white shadow-sm scale-105"
+                                        : "bg-slate-50 text-slate-500 hover:bg-slate-100"
+                                    }`}
+                                  >
+                                    {n}
+                                  </button>
+                                );
+                              }
+                            )}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <textarea
+                      className="input-field text-sm resize-none"
+                      rows={2}
+                      placeholder="Comments (optional)"
+                      value={scores[idx]?.comment || ""}
+                      onChange={(e) => setComment(idx, e.target.value)}
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </main>
+
+      {/* Sticky submit bar */}
+      <div className="sticky bottom-0 z-40 bg-white/90 backdrop-blur-sm border-t border-slate-100 py-4 px-6">
+        <div className="max-w-4xl mx-auto flex items-center justify-between">
+          <p className="text-sm text-slate-400">
+            {scoredCount()}/5 projects scored
+          </p>
+          <button
+            onClick={handleSubmit}
+            disabled={!allScored() || submitting}
+            className="btn-primary py-2.5 px-8 disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            {submitting
+              ? "Processing Evaluations..."
+              : "Submit All Evaluations →"}
+          </button>
+        </div>
+      </div>
+
       <Footer />
     </>
   );

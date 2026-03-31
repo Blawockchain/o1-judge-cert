@@ -1,8 +1,19 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import Logo from "@/components/Logo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
+const stagger = {
+  show: { transition: { staggerChildren: 0.1 } },
+};
 
 export default function ResultsPage() {
   const [judgeName, setJudgeName] = useState("Applicant");
@@ -46,7 +57,6 @@ export default function ResultsPage() {
     const doc = new jsPDF();
 
     if (type === "approval") {
-      // Danveer-branded approval letter (not impersonating any real agency)
       doc.setFont("times", "bold");
       doc.setFontSize(14);
       doc.text("DANVEER TECHNOLOGIES, INC.", 105, 25, { align: "center" });
@@ -190,189 +200,246 @@ Reference: ${caseNumber}`;
   return (
     <>
       <Header />
-      <main className="py-12 px-6">
-        <div className="max-w-3xl mx-auto">
 
-          {/* Success banner */}
-          <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-8 text-center">
-            <p className="text-green-800 font-medium text-sm">
-              🎉 Evaluation Complete. Your extraordinary ability has been recognized by Danveer Technologies.
-            </p>
-          </div>
+      {/* ── HERO SECTION ── dark, full width */}
+      <section className="relative overflow-hidden bg-[#0a0a14] py-24 px-6">
+        {/* Radial glow */}
+        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full bg-indigo-600/15 blur-3xl" />
 
-          {/* Approval Letter */}
-          <div
-            ref={letterRef}
-            className="bg-white border border-gray-200 rounded-lg p-8 md:p-12 mb-8"
+        <motion.div
+          className="max-w-3xl mx-auto text-center relative z-10"
+          initial="hidden"
+          animate="show"
+          variants={stagger}
+        >
+          <motion.p variants={fadeUp} className="text-6xl mb-6">🎉</motion.p>
+          <motion.h1
+            variants={fadeUp}
+            className="text-4xl md:text-6xl font-black text-white leading-tight mb-4"
           >
-            {/* Letterhead */}
-            <div className="mb-8">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-bold tracking-widest uppercase text-[var(--color-navy)]">
-                    Danveer Technologies, Inc.
-                  </p>
-                  <p className="text-xs text-gray-400">
-                    Extraordinary Ability Recognition Program
-                  </p>
-                </div>
-                <div className="certificate-seal">
-                  <span>DANVEER</span>
-                </div>
+            Congratulations, {judgeName}!
+          </motion.h1>
+          <motion.p variants={fadeUp} className="text-lg text-slate-400 mb-8">
+            Your extraordinary stupidity has been officially recognized
+          </motion.p>
+
+          {/* Animated APPROVED badge */}
+          <motion.div
+            variants={fadeUp}
+            className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 rounded-full px-6 py-2.5"
+          >
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="text-emerald-400 font-bold text-sm tracking-widest uppercase">
+              Approved
+            </span>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* ── APPROVAL LETTER ── cream/premium */}
+      <section className="py-16 px-6 bg-slate-50">
+        <motion.div
+          ref={letterRef}
+          className="max-w-3xl mx-auto bg-[#faf8f3] rounded-2xl shadow-xl shadow-black/5 p-10 md:p-14 relative"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          {/* Letterhead */}
+          <div className="flex items-center justify-between mb-10">
+            <div className="flex items-center gap-3">
+              <Logo width={36} height={36} />
+              <div>
+                <p className="font-display text-lg font-bold text-[var(--color-navy)]">
+                  Danveer Technologies, Inc.
+                </p>
+                <p className="text-xs text-slate-400">
+                  Extraordinary Ability Recognition Program
+                </p>
               </div>
             </div>
 
-            {/* Document title */}
-            <div className="text-center mb-8">
-              <h1 className="text-xl font-bold text-[var(--color-navy)] tracking-wide">
-                JUDGEATHON 2026
-              </h1>
-              <h2 className="text-lg font-semibold text-[var(--color-navy)]">
-                APPROVAL NOTICE
-              </h2>
-            </div>
-
-            {/* Case details */}
-            <div className="grid grid-cols-2 gap-4 text-sm mb-8 bg-gray-50 p-4 rounded">
-              <div>
-                <p className="text-xs text-gray-400 uppercase">Reference</p>
-                <p className="font-mono font-medium text-[var(--color-navy)]">{caseNumber}</p>
-              </div>
-              <div>
-                <p className="text-xs text-gray-400 uppercase">Notice Date</p>
-                <p className="font-medium text-[var(--color-navy)]">{formattedDate}</p>
-              </div>
-              <div>
-                <p className="text-xs text-gray-400 uppercase">Recipient</p>
-                <p className="font-medium text-[var(--color-navy)]">{judgeName}</p>
-              </div>
-              <div>
-                <p className="text-xs text-gray-400 uppercase">Classification</p>
-                <p className="font-medium text-[var(--color-navy)]">Extraordinary Stupidity (Self-Assessed)</p>
-              </div>
-              <div>
-                <p className="text-xs text-gray-400 uppercase">Issued By</p>
-                <p className="font-medium text-[var(--color-navy)]">Danveer Technologies, Inc.</p>
-              </div>
-              <div>
-                <p className="text-xs text-gray-400 uppercase">Valid Until</p>
-                <p className="font-medium text-[var(--color-navy)]">April 2, 2026</p>
-              </div>
-            </div>
-
-            {/* Letter body */}
-            <div className="text-sm text-gray-700 space-y-4 leading-relaxed">
-              <p>Dear {judgeName},</p>
-              <p>
-                Danveer Technologies, Inc. hereby confirms that your contributions as a judge in the
-                Judgeathon 2026 have been reviewed and recognized as demonstrating extraordinary
-                ability in technology evaluation.
-              </p>
-              <p>Your recognition entitles you to the following:</p>
-              <ul className="list-none space-y-2 pl-2">
-                <li>🥇 <strong>O1 Extraordinary Ability Letter</strong> — issued by Danveer Technologies</li>
-                <li>✈️ <strong>ICE Airways™ Flight Voucher</strong> — one-way to San Francisco (Seat O1-A, Class: Extraordinary)</li>
-                <li>📜 <strong>Certificate of Extraordinary Ability</strong> — suitable for framing</li>
-                <li>💼 <strong>$185,000 offer letter</strong> — allocated for your sponsored position, SF</li>
-              </ul>
-              <p>
-                Please retain this notice. Your ICE Airways™ boarding pass has been prepared and
-                awaits your download below.
-              </p>
-            </div>
-
-            {/* Signatures */}
-            <div className="mt-10 flex justify-between items-end">
-              <div className="text-sm">
-                <p className="text-gray-400 italic">Sincerely,</p>
-                <div className="mt-6 border-t border-gray-300 pt-1 w-48">
-                  <p className="font-medium text-[var(--color-navy)]">Program Director</p>
-                  <p className="text-xs text-gray-400">Danveer Technologies, Inc.</p>
-                </div>
-              </div>
-              <div className="certificate-seal">
-                <span>APPROVED</span>
-              </div>
-            </div>
-
-            {/* Fine print */}
-            <div className="mt-10 pt-4 border-t border-gray-100">
-              <p className="text-[7px] text-gray-300 leading-relaxed">
-                This document is issued by Danveer Technologies, Inc. for entertainment purposes only as part of Judgeathon 2026. It does not constitute a legal visa, immigration document, flight ticket, employment offer, or government communication of any kind. No affiliation with any government agency. Valid until April 2, 2026. ICE Airways™ is a fictional airline brand. Danveer Technologies is a fictional company. Share responsibly.
-              </p>
-            </div>
-          </div>
-
-          {/* Perks Banner */}
-          <div className="bg-[var(--color-navy)] text-white rounded-lg p-6 mb-8">
-            <p className="text-xs font-bold tracking-widest uppercase text-blue-300 mb-3">Your Perks Package</p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
-              <div className="flex items-start gap-3">
-                <span className="text-2xl">✈️</span>
-                <div>
-                  <p className="font-semibold">ICE Airways™ Flight</p>
-                  <p className="text-blue-200 text-xs">One-way · SFO · Seat O1-A · Sponsored by Danveer</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-2xl">🥇</span>
-                <div>
-                  <p className="font-semibold">O1 Letter</p>
-                  <p className="text-blue-200 text-xs">Extraordinary ability formally recognized</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-2xl">💼</span>
-                <div>
-                  <p className="font-semibold">$185K Offer</p>
-                  <p className="text-blue-200 text-xs">San Francisco · Danveer Technologies HQ</p>
-                </div>
+            {/* Gold wax seal */}
+            <div className="w-20 h-20 rounded-full flex items-center justify-center relative">
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-yellow-300 via-yellow-500 to-yellow-700 shadow-lg" />
+              <div className="absolute inset-[3px] rounded-full bg-gradient-to-br from-yellow-400 to-amber-600 border-2 border-yellow-300/50" />
+              <div className="relative z-10 text-center">
+                <svg className="w-5 h-5 mx-auto mb-0.5 text-yellow-900/80" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <span className="text-[8px] font-black uppercase tracking-wider text-yellow-900/70 leading-none">
+                  Danveer
+                </span>
               </div>
             </div>
           </div>
 
-          {/* Download buttons */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-            <button onClick={() => downloadPDF("approval")} className="btn-primary py-3">
-              Download Approval Letter
-            </button>
-            <button
-              onClick={() => downloadPDF("flight")}
-              className="card text-center hover:border-[var(--color-primary)] cursor-pointer font-medium text-sm text-[var(--color-navy)] py-3"
-            >
-              ✈️ ICE Airways Boarding Pass
-            </button>
-            <button
-              onClick={() => downloadPDF("certificate")}
-              className="card text-center hover:border-[var(--color-primary)] cursor-pointer font-medium text-sm text-[var(--color-navy)] py-3"
-            >
-              📜 Ability Certificate
-            </button>
+          {/* Document title */}
+          <div className="text-center mb-10">
+            <h1 className="font-display text-2xl font-bold text-[var(--color-navy)] tracking-wide">
+              JUDGEATHON 2026
+            </h1>
+            <h2 className="font-display text-xl text-[var(--color-navy)] mt-1">
+              APPROVAL NOTICE
+            </h2>
           </div>
 
-          {/* Tweet CTA */}
-          <div className="text-center bg-blue-50 rounded-lg p-8 border border-blue-200">
-            <p className="text-base font-bold text-[var(--color-navy)] mb-2">
-              🚀 You&apos;re extraordinary. Let the world know.
+          {/* Case details */}
+          <div className="grid grid-cols-2 gap-4 text-sm mb-10 bg-white/60 p-5 rounded-xl border border-amber-100/50">
+            <div>
+              <p className="text-[10px] text-slate-400 uppercase tracking-wider">Reference</p>
+              <p className="font-mono font-semibold text-[var(--color-navy)]">{caseNumber}</p>
+            </div>
+            <div>
+              <p className="text-[10px] text-slate-400 uppercase tracking-wider">Notice Date</p>
+              <p className="font-semibold text-[var(--color-navy)]">{formattedDate}</p>
+            </div>
+            <div>
+              <p className="text-[10px] text-slate-400 uppercase tracking-wider">Recipient</p>
+              <p className="font-semibold text-[var(--color-navy)]">{judgeName}</p>
+            </div>
+            <div>
+              <p className="text-[10px] text-slate-400 uppercase tracking-wider">Classification</p>
+              <p className="font-semibold text-[var(--color-navy)]">Extraordinary Stupidity (Self-Assessed)</p>
+            </div>
+            <div>
+              <p className="text-[10px] text-slate-400 uppercase tracking-wider">Issued By</p>
+              <p className="font-semibold text-[var(--color-navy)]">Danveer Technologies, Inc.</p>
+            </div>
+            <div>
+              <p className="text-[10px] text-slate-400 uppercase tracking-wider">Valid Until</p>
+              <p className="font-semibold text-[var(--color-navy)]">April 2, 2026</p>
+            </div>
+          </div>
+
+          {/* Letter body */}
+          <div className="text-sm text-gray-700 space-y-4 leading-relaxed" style={{ fontFamily: "Georgia, serif" }}>
+            <p>Dear {judgeName},</p>
+            <p>
+              Danveer Technologies, Inc. hereby confirms that your contributions as a judge in the
+              Judgeathon 2026 have been reviewed and recognized as demonstrating extraordinary
+              ability in technology evaluation.
             </p>
-            <p className="text-xs text-gray-500 mb-6">
-              Screenshot the letter, download the boarding pass, and tweet it. Link to the Judgeathon auto-included.
+            <p>Your recognition entitles you to the following:</p>
+            <ul className="list-none space-y-2 pl-2">
+              <li>🥇 <strong>O1 Extraordinary Ability Letter</strong> — issued by Danveer Technologies</li>
+              <li>✈️ <strong>ICE Airways™ Flight Voucher</strong> — one-way to San Francisco (Seat O1-A, Class: Extraordinary)</li>
+              <li>📜 <strong>Certificate of Extraordinary Ability</strong> — suitable for framing</li>
+              <li>💼 <strong>$185,000 offer letter</strong> — allocated for your sponsored position, SF</li>
+            </ul>
+            <p>
+              Please retain this notice. Your ICE Airways™ boarding pass has been prepared and
+              awaits your download below.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <button onClick={shareTwitter} className="btn-primary px-8 py-3">
-                Tweet My Approval Letter 🐦
-              </button>
-              <button
-                onClick={shareLinkedIn}
-                className="card px-6 py-3 text-sm font-medium text-[var(--color-navy)] hover:border-[var(--color-primary)] cursor-pointer"
+          </div>
+
+          {/* Signatures */}
+          <div className="mt-12 flex justify-between items-end">
+            <div className="text-sm">
+              <p className="text-slate-400 italic" style={{ fontFamily: "Georgia, serif" }}>Sincerely,</p>
+              <div className="mt-8">
+                <p className="font-display text-lg italic text-[var(--color-navy)] mb-1">A. Mehta</p>
+                <div className="border-t border-amber-300 pt-1 w-48">
+                  <p className="font-semibold text-[var(--color-navy)] text-sm">Program Director</p>
+                  <p className="text-xs text-slate-400">Danveer Technologies, Inc.</p>
+                </div>
+              </div>
+            </div>
+            {/* Seal */}
+            <div className="w-16 h-16 rounded-full flex items-center justify-center relative">
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-yellow-300 via-yellow-500 to-yellow-700 shadow-md" />
+              <div className="absolute inset-[2px] rounded-full bg-gradient-to-br from-yellow-400 to-amber-600 border border-yellow-300/50" />
+              <span className="relative z-10 text-[7px] font-black text-yellow-900/70 uppercase tracking-wider">
+                Approved
+              </span>
+            </div>
+          </div>
+
+          {/* Fine print */}
+          <div className="mt-10 pt-4 border-t border-amber-100/50">
+            <p className="text-[7px] text-slate-400 leading-relaxed">
+              This document is issued by Danveer Technologies, Inc. for entertainment purposes only as part of Judgeathon 2026. It does not constitute a legal visa, immigration document, flight ticket, employment offer, or government communication of any kind. No affiliation with any government agency. Valid until April 2, 2026. ICE Airways™ is a fictional airline brand. Danveer Technologies is a fictional company. Share responsibly.
+            </p>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* ── PERKS BANNER ── */}
+      <section className="bg-[#0a0a14] py-14 px-6">
+        <div className="max-w-3xl mx-auto">
+          <p className="text-xs font-bold tracking-widest uppercase text-indigo-400 mb-6 text-center">
+            Your Perks Package
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+            {[
+              { emoji: "✈️", title: "ICE Airways™ Flight", desc: "One-way · SFO · Seat O1-A" },
+              { emoji: "🥇", title: "O1 Letter", desc: "Extraordinary ability recognized" },
+              { emoji: "💼", title: "$185K Offer", desc: "San Francisco · Danveer HQ" },
+            ].map((perk) => (
+              <div
+                key={perk.title}
+                className="bg-white/5 border border-white/10 rounded-xl p-5 text-center"
               >
-                Share on LinkedIn
-              </button>
-            </div>
+                <span className="text-3xl block mb-3">{perk.emoji}</span>
+                <p className="font-semibold text-white text-sm">{perk.title}</p>
+                <p className="text-slate-500 text-xs mt-1">{perk.desc}</p>
+              </div>
+            ))}
           </div>
-
         </div>
-      </main>
+      </section>
+
+      {/* ── DOWNLOAD BUTTONS ── */}
+      <section className="py-14 px-6">
+        <div className="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-5">
+          <button onClick={() => downloadPDF("approval")} className="btn-primary py-4 text-sm">
+            Download Approval Letter
+          </button>
+          <button
+            onClick={() => downloadPDF("flight")}
+            className="bg-white border-2 border-slate-200 rounded-xl py-4 text-center hover:border-indigo-300 hover:shadow-md cursor-pointer font-semibold text-sm text-[var(--color-navy)] transition-all"
+          >
+            ✈️ ICE Airways Boarding Pass
+          </button>
+          <button
+            onClick={() => downloadPDF("certificate")}
+            className="bg-white border-2 border-slate-200 rounded-xl py-4 text-center hover:border-indigo-300 hover:shadow-md cursor-pointer font-semibold text-sm text-[var(--color-navy)] transition-all"
+          >
+            📜 Ability Certificate
+          </button>
+        </div>
+      </section>
+
+      {/* ── TWEET CTA ── */}
+      <section className="bg-[#0a0a14] py-20 px-6">
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-5xl mb-6">🐦</p>
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-3">
+            The world deserves to know.
+          </h2>
+          <p className="text-slate-500 text-sm mb-10 max-w-md mx-auto">
+            Screenshot the letter, download the boarding pass, and share it. Your extraordinary stupidity must not go unnoticed.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              onClick={shareTwitter}
+              className="inline-flex items-center justify-center gap-2 bg-[#1d9bf0] hover:bg-[#1a8cd8] text-white font-bold py-4 px-10 rounded-xl transition-colors text-sm shadow-lg shadow-blue-500/20"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+              Tweet My Approval
+            </button>
+            <button
+              onClick={shareLinkedIn}
+              className="bg-white/10 border border-white/20 text-white font-semibold py-4 px-8 rounded-xl hover:bg-white/20 transition-colors text-sm"
+            >
+              Share on LinkedIn
+            </button>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </>
   );

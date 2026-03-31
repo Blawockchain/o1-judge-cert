@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap");
 
 @theme {
   --color-primary: #6366f1;
@@ -183,6 +185,8 @@
                     linear-gradient(90deg, rgba(99,102,241,0.04) 1px, transparent 1px);
   background-size: 40px 40px;
 }
+
+.font-display { font-family: "Playfair Display", Georgia, serif; }
 
 @media print {
   .no-print { display: none !important; }
