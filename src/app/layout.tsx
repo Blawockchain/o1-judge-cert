@@ -1,41 +1,26 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
-  subsets: ["latin"],
-});
-
-const playfairDisplay = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "O1 Judge Certificate | Hackathon Judging Verification",
+  title: "O1 Visa Judge Sponsorship Program | Devfolio",
   description:
-    "Generate official certificates proving your role as a hackathon judge. Used for O1 visa applications and professional verification.",
+    "Develop extraordinary ability through institutional contribution. Evaluate cutting-edge projects, earn O1 visa sponsorship.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${spaceGrotesk.variable} ${playfairDisplay.variable} h-full antialiased dark`}
-    >
-      <body className="min-h-full flex flex-col bg-[#0a0a0f] text-[#e8e8ed]">
-        {children}
-      </body>
+    <html lang="en">
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="min-h-screen">{children}</body>
     </html>
   );
 }
