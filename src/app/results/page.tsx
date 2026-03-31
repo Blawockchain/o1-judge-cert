@@ -67,7 +67,7 @@ export default function ResultsPage() {
       doc.text(`Reference Number: ${caseNumber}`, 20, y);
       doc.text(`Notice Date: ${formattedDate}`, 20, y + 8);
       doc.text(`Recipient: ${judgeName}`, 20, y + 16);
-      doc.text("Classification: Extraordinary Ability (Self-Assessed)", 20, y + 24);
+      doc.text("Classification: Extraordinary Stupidity (Self-Assessed)", 20, y + 24);
       doc.text("Expiry Date: April 2, 2026", 20, y + 32);
       doc.text("Issued by: Danveer Technologies, Inc.", 20, y + 40);
 
@@ -160,7 +160,7 @@ Danveer Technologies, Inc.`;
       doc.setFontSize(11);
       const certBody = `has demonstrated extraordinary ability in the evaluation of technology projects through participation in the Danveer Judgeathon 2026. Their expert assessments have contributed to the advancement of innovation in the global technology ecosystem.
 
-Classification: Extraordinary Ability (Self-Assessed)
+Classification: Extraordinary Stupidity (Self-Assessed)
 Date of Recognition: ${formattedDate}
 Reference: ${caseNumber}`;
 
@@ -248,7 +248,7 @@ Reference: ${caseNumber}`;
               </div>
               <div>
                 <p className="text-xs text-gray-400 uppercase">Classification</p>
-                <p className="font-medium text-[var(--color-navy)]">Extraordinary Ability</p>
+                <p className="font-medium text-[var(--color-navy)]">Extraordinary Stupidity (Self-Assessed)</p>
               </div>
               <div>
                 <p className="text-xs text-gray-400 uppercase">Issued By</p>

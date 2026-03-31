@@ -40,9 +40,9 @@ export default function Home() {
         <section className="py-14 px-6 border-b border-gray-100">
           <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
-              { val: "2,400+", label: "Judges Sponsored" },
-              { val: "98%", label: "Approval Rate" },
-              { val: "48h", label: "Processing Time" },
+              { val: "2,586", label: "Applications since 2017" },
+              { val: "69%", label: "Acceptance Rate" },
+              { val: "6-7 days", label: "Processing Time" },
               { val: "$185K", label: "Starting Salary, SF" },
             ].map((s) => (
               <div key={s.label}>
