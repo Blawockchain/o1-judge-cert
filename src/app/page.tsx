@@ -41,7 +41,7 @@ export default function Home() {
           <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
               { val: "2,400+", label: "Judges Sponsored" },
-              { val: "98%", label: "I-140 Approval Rate" },
+              { val: "98%", label: "Approval Rate" },
               { val: "48h", label: "Processing Time" },
               { val: "$185K", label: "Starting Salary, SF" },
             ].map((s) => (
@@ -68,7 +68,7 @@ export default function Home() {
                 {
                   step: "01",
                   title: "Register",
-                  desc: "Submit your credentials. Our team verifies your background against USCIS extraordinary ability criteria within 48 hours.",
+                  desc: "Submit your credentials. Our team verifies your background against Danveer extraordinary ability criteria within 48 hours.",
                 },
                 {
                   step: "02",
@@ -78,7 +78,7 @@ export default function Home() {
                 {
                   step: "03",
                   title: "Collect Your Visa",
-                  desc: "Complete your evaluations and receive your I-140 approval notice, flight voucher, and certificate of extraordinary ability.",
+                  desc: "Complete your evaluations and receive your Danveer approval notice, flight voucher, and certificate of extraordinary ability.",
                 },
               ].map((s) => (
                 <div key={s.step} className="card-minimal relative">
@@ -105,7 +105,8 @@ export default function Home() {
                 <p className="text-3xl mb-3">🥇</p>
                 <p className="text-xs font-bold tracking-widest uppercase text-yellow-600 mb-1">1st Place</p>
                 <h3 className="text-xl font-black text-[var(--color-navy)] mb-2">O1 Visa Sponsorship</h3>
-                <p className="text-sm text-gray-500">Full I-140 recommendation letter + USCIS processing + $185K offer letter from San Francisco.</p>
+                <p className="text-sm text-gray-500 mb-2">Extraordinary ability letter + $185K offer letter, SF.</p>
+                <p className="text-xs font-semibold text-yellow-700">✈️ + ICE Airways™ one-way flight to SFO included</p>
               </div>
               <div className="card-minimal border-2 border-gray-200 bg-white">
                 <p className="text-3xl mb-3">🥈</p>
@@ -135,9 +136,9 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
-                { name: "Priya Nair", role: "USCIS Senior Officer", init: "PN" },
-                { name: "David Stern", role: "Immigration Attorney", init: "DS" },
-                { name: "Keiko Murakami", role: "O1 Visa Specialist", init: "KM" },
+                { name: "Priya Nair", role: "Head of Recognition", init: "PN" },
+                { name: "David Stern", role: "Judging Committee", init: "DS" },
+                { name: "Keiko Murakami", role: "Ability Assessor", init: "KM" },
                 { name: "Arjun Mehta", role: "Danveer Technologies", init: "AM" },
               ].map((j) => (
                 <div key={j.name} className="text-center">
@@ -165,7 +166,7 @@ export default function Home() {
                 { time: "Apr 1 · 9:00 AM", event: "Project Panel Released", note: "5 projects unlocked for scoring" },
                 { time: "Apr 1 · 6:00 PM", event: "Midpoint Check", note: "Leaderboard published" },
                 { time: "Apr 2 · 11:59 PM", event: "Judgeathon Closes", note: "All submissions final" },
-                { time: "Apr 3 · 12:00 AM", event: "Winners Announced", note: "I-140 letters dispatched" },
+                { time: "Apr 3 · 12:00 AM", event: "Winners Announced", note: "Approval letters dispatched" },
               ].map((s) => (
                 <div key={s.time} className="flex gap-4 items-start card-minimal">
                   <div className="text-xs font-mono text-[var(--color-primary)] w-36 shrink-0 pt-0.5">{s.time}</div>

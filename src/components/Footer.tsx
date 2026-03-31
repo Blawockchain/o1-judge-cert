@@ -9,19 +9,17 @@ export default function Footer() {
                 <span className="text-white font-bold text-xs">D</span>
               </div>
               <span className="font-semibold text-sm text-[var(--color-navy)]">
-                Devfolio
+                Danveer Technologies
               </span>
             </div>
             <p className="text-xs text-gray-500 max-w-xs">
-              In partnership with Devfolio.co. The O1 Visa Judge Sponsorship
-              Program is an initiative to recognize extraordinary contributors
-              in the technology ecosystem.
+              Judgeathon 2026 is a Danveer Technologies production. For entertainment purposes only. Expires April 2, 2026.
             </p>
           </div>
           <div className="text-xs text-gray-400 text-right">
-            <p>&copy; 2026 Devfolio Technologies, Inc.</p>
+            <p>&copy; 2026 Danveer Technologies, Inc.</p>
             <p className="mt-1">
-              Program subject to USCIS guidelines and applicable regulations.
+              All prizes are fictional. No actual visas, flights, or asylum claims are provided.
             </p>
           </div>
         </div>

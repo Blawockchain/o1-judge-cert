@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "O1 Visa Judge Sponsorship Program | Devfolio",
+  title: "Judgeathon 2026 | Danveer Technologies",
   description:
-    "Develop extraordinary ability through institutional contribution. Evaluate cutting-edge projects, earn O1 visa sponsorship.",
+    "The world's first hackathon for judges. No hackers. No teams. Just you, a panel of projects, and an O1 letter waiting at the finish line.",
 };
 
 export default function RootLayout({

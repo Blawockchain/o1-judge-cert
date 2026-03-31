@@ -155,9 +155,8 @@ export default function RegisterPage() {
             </button>
 
             <p className="text-xs text-gray-400 text-center">
-              By submitting, you agree to Devfolio&apos;s Terms of Service and
-              Privacy Policy. Your information will be processed in accordance
-              with USCIS data handling requirements.
+              By submitting, you agree to Danveer&apos;s Terms of Service and
+              Privacy Policy. This is a fictional judging program for entertainment purposes only.
             </p>
           </form>
         </div>
