@@ -1,4 +1,4 @@
-import { list } from "@vercel/blob";
+import { list, get } from "@vercel/blob";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
@@ -19,17 +19,19 @@ export async function GET(req: NextRequest) {
 
     const submissions = await Promise.all(
       blobs.map(async (blob) => {
-        const res = await fetch(blob.url);
+        const blobData = await get(blob.pathname, { token: process.env.BLOB_READ_WRITE_TOKEN });
+        if (!blobData) return null;
+        const res = await fetch(blobData.url);
         return await res.json();
       })
     );
 
-    // Sort newest first
-    submissions.sort((a, b) =>
+    const filtered = submissions.filter(Boolean);
+    filtered.sort((a, b) =>
       new Date(b.submitted_at).getTime() - new Date(a.submitted_at).getTime()
     );
 
-    return NextResponse.json({ submissions });
+    return NextResponse.json({ submissions: filtered });
   } catch (err) {
     console.error("Admin route error:", err);
     return NextResponse.json({ error: "Failed to load submissions." }, { status: 500 });
