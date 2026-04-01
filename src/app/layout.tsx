@@ -17,8 +17,8 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://judgeathon.devfolio.co/og-image.jpg",
-        alt: "Judgeathon 2026 - The World's First Hackathon for O1",
+        url: "https://judgeathon.devfolio.co/og-image.png",
+        alt: "Judgeathon 2026 - The World's First Hackathon for O1 Visas",
       },
     ],
   },
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Judgeathon 2026 | The World's First Hackathon for O1",
     description:
-      "The world's first hackathon whose sole purpose is to get you an O1. No hackers. No teams. Just you, your judgements and an O1 letter waiting at the finish line.",
-    images: ["https://judgeathon.devfolio.co/og-image.jpg"],
+      "The world's first hackathon whose sole purpose is to get you an O1 visa. No hackers. No teams. Just you, a panel of projects, and an approval letter at the finish line.",
+    images: ["https://judgeathon.devfolio.co/og-image.png"],
   },
 };
 
