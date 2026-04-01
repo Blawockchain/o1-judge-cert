@@ -20,12 +20,12 @@ export default function Footer() {
                 <rect x="4" y="72" width="72" height="4" fill="white"/>
               </svg>
               <div>
-                <p className="font-serif font-bold text-sm">Danveer Technologies</p>
+                <p className="font-serif font-bold text-sm">Dunki Technologies</p>
                 <p className="font-mono-accent text-xs text-blue-300 tracking-widest uppercase">Bangalore, India</p>
               </div>
             </div>
             <p className="text-blue-200 text-sm leading-relaxed">
-              Extraordinary stupidity,<br/>recognized since 2017.
+              Extraordinary talent,<br/>recognized since 2017.
             </p>
           </div>
           <div>
@@ -51,8 +51,8 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="bg-[#001a4d] text-blue-300 px-6 py-4">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2 text-xs font-mono-accent tracking-wide">
-          <p>© 2026 Danveer Technologies, Inc. · All rights reserved.</p>
-          <p>For entertainment only. No actual visas, flights, or asylum claims provided. Expires April 2, 2026.</p>
+          <p>© 2026 Dunki Technologies, Inc. All rights reserved.</p>
+          <p>For entertainment only. No actual O1, flights, or asylum claims provided. Expires April 2, 2026.</p>
         </div>
       </div>
     </footer>

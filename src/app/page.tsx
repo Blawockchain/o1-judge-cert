@@ -22,11 +22,12 @@ const stagger = { show: { transition: { staggerChildren: 0.1 } } };
 function FAQSection() {
   const [open, setOpen] = useState<number | null>(null);
   const faqs = [
-    { q: "What exactly is a Judgeathon?", a: "A hackathon where there are no hackers — only judges. You compete by completing absurd challenges. Your score, speed, and commentary determine your rank." },
-    { q: "Do I need to code anything?", a: "Absolutely not. You just need strong opinions and the ability to rate clouds by intelligence. Extraordinary ability not required — but it helps." },
-    { q: "Is the O1 visa real?", a: "The letter is incredibly real-looking. The visa is not. This expires April 2, 2026 for a reason." },
-    { q: "Who is Danveer Technologies?", a: "A distinguished technology firm with deep expertise in extraordinary ability assessment, institutional recognition, and April programming." },
+    { q: "What exactly is a Judgeathon?", a: "A hackathon where there are no hackers only judges. You compete by completing absurd challenges. Your score, speed, and commentary determine your rank." },
+    { q: "Do I need to code anything?", a: "Absolutely not. You just need strong opinions and the ability to rate clouds by intelligence. Extraordinary ability not required but it helps." },
+    { q: "Is the O1 real?", a: "The letter is incredibly real-looking. The O1 is not. This expires April 2, 2026 for a reason." },
+    { q: "Who is Dunki Technologies?", a: "A distinguished technology firm with deep expertise in extraordinary ability assessment, institutional recognition, and April programming." },
     { q: "Can I share my results?", a: "You are strongly encouraged to tweet your approval letter. The more people who see it, the more extraordinary you become." },
+    { q: "Why are you doing this?", a: "Our founders get a lot of DMs to add them as judges so they can show it in their O1. We've cut all middle men to make this possible for everyone to get O1." },
   ];
 
   return (
@@ -34,7 +35,7 @@ function FAQSection() {
       <div className="max-w-3xl mx-auto">
         <motion.div className="mb-14 text-center" initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}>
           <motion.p variants={fadeUp} className="font-mono-accent text-xs tracking-[0.2em] uppercase text-[#B22234] mb-3">FAQ</motion.p>
-          <motion.h2 variants={fadeUp} className="font-serif text-4xl font-black text-[#002868]">Frequently Asked Questions.</motion.h2>
+          <motion.h2 variants={fadeUp} className="font-serif text-4xl font-black text-[#002868]">Frequently Asked Questions</motion.h2>
         </motion.div>
         <motion.div className="space-y-0 border border-gray-200" initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}>
           {faqs.map((f, i) => (
@@ -65,10 +66,10 @@ function FAQSection() {
 }
 
 const SPEAKERS = [
-  { name: "Angad Bedi", role: "Head of Recognition", org: "Danveer Technologies", avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=AngadBedi&backgroundColor=b6e3f4" },
-  { name: "Savi Mehta", role: "Judging Committee", org: "Judgeathon 2026", avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=SaviMehta&backgroundColor=d1d4f9" },
-  { name: "Reyansh Singh", role: "Ability Assessor", org: "Danveer Technologies", avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=ReyanshSingh&backgroundColor=ffd5dc" },
-  { name: "Diya Patel", role: "Program Director", org: "Danveer Technologies", avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=DiyaPatel&backgroundColor=c0aede" },
+  { name: "O. Mahajan", role: "Head of Recognition", org: "Moved Away", avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=OMahajan&backgroundColor=b6e3f4" },
+  { name: "R. Manche", role: "Judging Committee", org: "Maskmeta", avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=RManche&backgroundColor=d1d4f9" },
+  { name: "Jameel Jamali", role: "Ability Assessor", org: "Juicero", avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=JameelJamali&backgroundColor=ffd5dc" },
+  { name: "Jin Yang", role: "Program Director", org: "TFX", avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=JinYang&backgroundColor=c0aede" },
 ];
 
 const heroWords = ["The", "World's", "First"];
@@ -114,11 +115,11 @@ export default function Home() {
 
               <motion.p variants={fadeUp} className="text-xl text-gray-600 max-w-2xl mx-auto text-center mb-3 leading-relaxed">
                 No hackers. No teams. No code.<br/>
-                Just you, a panel of projects, and an O1 letter waiting at the finish line.
+                Just you, your judgements and an O1 letter waiting at the finish line.
               </motion.p>
 
               <motion.p variants={fadeUp} className="text-center font-mono-accent text-xs tracking-widest uppercase text-gray-400 mb-10">
-                Organised by Danveer Technologies · Extraordinary Talent Recognized Since 2017
+                Organised by Dunki Technologies · Extraordinary Talent Recognized Since 2017
               </motion.p>
 
               <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -166,13 +167,13 @@ export default function Home() {
             <motion.div className="mb-14 text-center" initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}>
               <motion.p variants={fadeUp} className="font-mono-accent text-xs tracking-[0.2em] uppercase text-[#B22234] mb-3">The Format</motion.p>
               <motion.h2 variants={fadeUp} className="font-serif text-4xl font-black text-[#002868]">A hackathon with one twist:</motion.h2>
-              <motion.p variants={fadeUp} className="text-xl text-gray-500 mt-3">You don&apos;t build. You judge.</motion.p>
+              <motion.p variants={fadeUp} className="text-xl text-gray-500 mt-3">You don't build. You judge.</motion.p>
             </motion.div>
             <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-8" initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}>
               {[
-                { step: "01", title: "Register", desc: "Submit credentials. Our team verifies your background within 48 hours.", Icon: IconRegister },
+                { step: "01", title: "Register", desc: "Submit credentials. Our team waits you make 48 hours.", Icon: IconRegister },
                 { step: "02", title: "Hack as a Judge", desc: "Evaluate 5 absurd challenges. Score fast. This is your hack.", Icon: IconJudge },
-                { step: "03", title: "Collect Your Visa", desc: "Complete evaluations and receive your approval letter + ICE Airways boarding pass.", Icon: IconCertificate },
+                { step: "03", title: "Collect Your O1", desc: "Complete evaluations and receive your approval letter + 🧊 Airways return flight included.", Icon: IconCertificate },
               ].map((s) => (
                 <motion.div key={s.step} variants={fadeUp} className="card">
                   <div className="flex items-start gap-4">
@@ -198,9 +199,9 @@ export default function Home() {
             </motion.div>
             <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-6" initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}>
               {[
-                { rank: "1st Place", title: "O1 Visa Sponsorship", desc: "Extraordinary ability letter + $185K offer, San Francisco. ICE Airways™ one-way flight included.", accent: "border-t-[#f5c400]", iconColor: "#f5c400" },
-                { rank: "2nd Place", title: "H-1B Petition", desc: "Specialty occupation sponsorship + 3-year initial period + employer-of-record setup.", accent: "border-t-[#002868]", iconColor: "#002868" },
-                { rank: "3rd Place", title: "Asylum", desc: "Immediate protection + work authorisation + pathway to green card. Valid while supplies last.", accent: "border-t-[#B22234]", iconColor: "#B22234" },
+                { rank: "1st Place", title: "O1 Extraordinary", desc: "Extraordinary ability letter + $401K offer, San Francisco. 🧊 Airways return flight included.", accent: "border-t-[#f5c400]", iconColor: "#f5c400" },
+                { rank: "2nd Place", title: "Entry Through Dunki Roadways", desc: "Specialty occupation sponsorship + 3-year initial period + employer-of-record setup.", accent: "border-t-[#002868]", iconColor: "#002868" },
+                { rank: "3rd Place", title: "Largely Mental", desc: "Largely mental + pathway to red card. Valid while supplies last.", accent: "border-t-[#B22234]", iconColor: "#B22234" },
               ].map((p) => (
                 <motion.div key={p.rank} variants={fadeUp} className={`card ${p.accent}`}>
                   <div className="mb-3">

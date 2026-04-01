@@ -78,11 +78,11 @@ const CHALLENGES: Challenge[] = [
     id: 5,
     type: "choice",
     instruction: "CAPTCHA CHALLENGE 5 OF 5",
-    question: "Which of these men is most likely to receive an O1 visa?",
+    question: "Which of these candidates is most likely to receive an O1?",
     subtext: "Judge based on vibes alone. Do not think. Trust the process.",
     options: [
       { id: "a", label: "Rajesh", description: "17 YOE. 3 patents. Publishes research. Volunteers.", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" },
-      { id: "b", label: "Brad", description: "Started a podcast. 1,200 LinkedIn followers. Has opinions.", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face" },
+      { id: "b", label: "Brad", description: "Started a podcast. 1,200 followers. Has opinions.", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face" },
       { id: "c", label: "Vikram", description: "Extraordinary ability in being ordinary. Self-assessed.", img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face" },
     ],
     answerType: "single",

@@ -7,7 +7,7 @@ export default function Header() {
       <div className="bg-[#002868] px-6 py-1.5">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <p className="text-[11px] text-blue-200 font-mono-accent tracking-[0.15em] uppercase font-medium">
-            An Official Program of Danveer Technologies, Inc.
+            An Official Program of Dunki Technologies, Inc.
           </p>
           <p className="text-[11px] text-blue-200 font-mono-accent tracking-[0.15em] uppercase font-medium hidden md:block">
             April 1–2, 2026
@@ -36,7 +36,7 @@ export default function Header() {
               <rect x="4" y="72" width="72" height="4" fill="currentColor"/>
             </svg>
             <div>
-              <p className="font-serif text-[13px] font-black tracking-tight uppercase text-[#002868] leading-none">Danveer</p>
+              <p className="font-serif text-[13px] font-black tracking-tight uppercase text-[#002868] leading-none">Dunki</p>
               <p className="font-mono-accent text-[9px] tracking-[0.1em] text-gray-400 uppercase">Bangalore, India</p>
             </div>
           </Link>

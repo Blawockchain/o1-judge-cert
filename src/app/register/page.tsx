@@ -79,7 +79,7 @@ export default function RegisterPage() {
           >
             <motion.span variants={fadeUp} className="block">Prove your</motion.span>
             <motion.span variants={fadeUp} className="block">extraordinary</motion.span>
-            <motion.span variants={fadeUp} className="block text-[#B22234]">stupidity.</motion.span>
+            <motion.span variants={fadeUp} className="block text-[#B22234]">ability.</motion.span>
           </motion.h1>
 
           <motion.p
@@ -88,7 +88,7 @@ export default function RegisterPage() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            Complete your application to join the Judgeathon 2026. Every judge who completes their evaluation receives:
+            Submit credentials. Our team waits you make 48 hours. Every judge who completes their evaluation receives:
           </motion.p>
 
           <motion.ul
@@ -102,8 +102,8 @@ export default function RegisterPage() {
                 <IconPrizes size={28} color="#f5c400" />
               </div>
               <div>
-                <p className="font-semibold text-white">O1 Extraordinary Ability Letter</p>
-                <p className="text-blue-300 text-xs">Issued by Danveer Technologies</p>
+                <p className="font-semibold text-white">O1 Extraordinary</p>
+                <p className="text-blue-300 text-xs">Issued by Dunki Technologies</p>
               </div>
             </motion.li>
             <motion.li variants={fadeUp} className="flex items-start gap-3">
@@ -111,7 +111,7 @@ export default function RegisterPage() {
                 <IconArrow size={28} color="#f5c400" />
               </div>
               <div>
-                <p className="font-semibold text-white">ICE Airways™ One-Way Flight</p>
+                <p className="font-semibold text-white">🧊 Airways Return Flight</p>
                 <p className="text-blue-300 text-xs">Seat O1-A · SFO · Class: Extraordinary</p>
               </div>
             </motion.li>
@@ -120,8 +120,8 @@ export default function RegisterPage() {
                 <IconCertificate size={28} color="#f5c400" />
               </div>
               <div>
-                <p className="font-semibold text-white">$185K Offer Letter</p>
-                <p className="text-blue-300 text-xs">San Francisco · Danveer Technologies HQ</p>
+                <p className="font-semibold text-white">$401K Offer Letter</p>
+                <p className="text-blue-300 text-xs">San Francisco · Dunki Technologies HQ</p>
               </div>
             </motion.li>
           </motion.ul>
@@ -198,13 +198,13 @@ export default function RegisterPage() {
 
             <motion.div variants={fadeUp} className="relative">
               <input
-                name="linkedin"
+                name="instagram"
                 type="url"
                 placeholder=" "
                 className="input-field peer w-full pt-6 pb-3 text-sm"
               />
               <label className="absolute left-4 top-2 text-xs font-semibold text-[#B22234] peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-500 peer-placeholder-shown:font-normal transition-all pointer-events-none">
-                LinkedIn Profile
+                Instagram Profile
               </label>
             </motion.div>
 
@@ -228,7 +228,7 @@ export default function RegisterPage() {
                 type="number"
                 required
                 min={1}
-                max={50}
+                max={69}
                 placeholder=" "
                 className="input-field peer pt-5 pb-2"
               />
@@ -239,13 +239,13 @@ export default function RegisterPage() {
 
             <motion.div variants={fadeUp}>
               <label className="block text-xs font-medium text-slate-500 mb-1.5">
-                Why do you want to judge?
+                Why do you want O1?
               </label>
               <textarea
                 name="motivation"
                 rows={3}
                 className="input-field resize-none"
-                placeholder="Tell us about your motivation..."
+                placeholder="Tell us why you want O1..."
               />
             </motion.div>
 
@@ -258,7 +258,7 @@ export default function RegisterPage() {
               />
               <label className="text-xs text-gray-500 leading-relaxed">
                 I consent to visa sponsorship consideration and acknowledge that
-                my judging performance will be evaluated as part of the O1 visa
+                my judging performance will be evaluated as part of the O1
                 extraordinary ability assessment. *
               </label>
             </motion.div>
@@ -277,7 +277,7 @@ export default function RegisterPage() {
             </motion.div>
 
             <motion.p variants={fadeUp} className="text-[10px] text-gray-400 text-center">
-              By submitting, you agree to Danveer&apos;s Terms of Service and
+              By submitting, you agree to Dunki Technologies Terms of Service and
               Privacy Policy. This is a fictional judging program for entertainment purposes only.
             </motion.p>
           </motion.form>
