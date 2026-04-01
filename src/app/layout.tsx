@@ -12,12 +12,12 @@ export const metadata: Metadata = {
     title: "Judgeathon 2026 | The World's First Hackathon for O1 Visas",
     description:
       "The world's first hackathon whose sole purpose is to get you an O1 visa. No hackers. No teams. Just you, a panel of projects, and an approval letter at the finish line.",
-    url: "https://judgeathon.danveer.tech",
+    url: "https://judgeathon.devfolio.co",
     siteName: "Judgeathon 2026",
     type: "website",
     images: [
       {
-        url: "https://judgeathon.danveer.tech/og-image.png",
+        url: "https://judgeathon.devfolio.co/og-image.png",
         alt: "Judgeathon 2026 - The World's First Hackathon for O1 Visas",
       },
     ],
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: "Judgeathon 2026 | The World's First Hackathon for O1 Visas",
     description:
       "The world's first hackathon whose sole purpose is to get you an O1 visa. No hackers. No teams. Just you, a panel of projects, and an approval letter at the finish line.",
-    images: ["https://judgeathon.danveer.tech/og-image.png"],
+    images: ["https://judgeathon.devfolio.co/og-image.png"],
   },
 };
 
