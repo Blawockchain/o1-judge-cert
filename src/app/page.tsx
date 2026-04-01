@@ -118,7 +118,7 @@ export default function Home() {
               </motion.p>
 
               <motion.p variants={fadeUp} className="text-center font-mono-accent text-xs tracking-widest uppercase text-gray-400 mb-10">
-                Organised by Danveer Technologies · Extraordinary Stupidity Recognized Since 2017
+                Organised by Danveer Technologies · Extraordinary Talent Recognized Since 2017
               </motion.p>
 
               <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -222,7 +222,7 @@ export default function Home() {
             <motion.div className="mb-14 text-center" initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}>
               <motion.p variants={fadeUp} className="font-mono-accent text-xs tracking-[0.2em] uppercase text-[#B22234] mb-3">Distinguished Panel</motion.p>
               <motion.h2 variants={fadeUp} className="font-serif text-4xl font-black text-[#002868]">Who&apos;s judging the judges.</motion.h2>
-              <motion.p variants={fadeUp} className="text-gray-400 mt-3">Experts in the field of extraordinary stupidity.</motion.p>
+              <motion.p variants={fadeUp} className="text-gray-400 mt-3">Experts in the field of extraordinary talent assessment.</motion.p>
             </motion.div>
             <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-6" initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}>
               {SPEAKERS.map((s) => (

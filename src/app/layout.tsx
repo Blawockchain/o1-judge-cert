@@ -4,7 +4,21 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Judgeathon 2026 | Danveer Technologies",
   description:
-    "The world's first hackathon for judges. No hackers. No teams. Just you, a panel of projects, and an O1 letter waiting at the finish line.",
+    "The world's first hackathon whose sole purpose is to get you an O1 visa. No hackers. No teams. Just you, a panel of projects, and an approval letter at the finish line.",
+  openGraph: {
+    title: "Judgeathon 2026 | The World's First Hackathon for O1 Visas",
+    description:
+      "The world's first hackathon whose sole purpose is to get you an O1 visa. No hackers. No teams. Just you, a panel of projects, and an approval letter at the finish line.",
+    url: "https://judgeathon.danveer.tech",
+    siteName: "Judgeathon 2026",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Judgeathon 2026 | The World's First Hackathon for O1 Visas",
+    description:
+      "The world's first hackathon whose sole purpose is to get you an O1 visa. No hackers. No teams. Just you, a panel of projects, and an approval letter at the finish line.",
+  },
 };
 
 export default function RootLayout({
