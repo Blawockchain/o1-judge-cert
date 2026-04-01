@@ -1,4 +1,4 @@
-import { createClient } from "@supabase/supabase-js";
+import { put, list, getDownloadUrl } from "@vercel/blob";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
@@ -10,33 +10,27 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Name and email are required." }, { status: 400 });
     }
 
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const supabaseKey = process.env.SUPABASE_SERVICE_KEY;
+    const submission = {
+      name,
+      email,
+      instagram: instagram || null,
+      expertise: expertise || null,
+      experience: experience ? Number(experience) : null,
+      motivation: motivation || null,
+      submitted_at: new Date().toISOString(),
+    };
 
-    if (!supabaseUrl || !supabaseKey) {
-      // If Supabase isn't configured, still let user through (graceful degradation)
-      console.warn("Supabase not configured — submission not stored.");
+    if (!process.env.BLOB_READ_WRITE_TOKEN) {
+      console.warn("Blob store not configured — submission not stored.");
       return NextResponse.json({ ok: true });
     }
 
-    const supabase = createClient(supabaseUrl, supabaseKey);
-
-    const { error } = await supabase.from("submissions").insert([
-      {
-        name,
-        email,
-        instagram: instagram || null,
-        expertise: expertise || null,
-        experience: experience ? Number(experience) : null,
-        motivation: motivation || null,
-        submitted_at: new Date().toISOString(),
-      },
-    ]);
-
-    if (error) {
-      console.error("Supabase insert error:", error);
-      return NextResponse.json({ error: "Failed to save submission." }, { status: 500 });
-    }
+    const filename = `submissions/${Date.now()}-${email.replace(/[^a-z0-9]/gi, "_")}.json`;
+    await put(filename, JSON.stringify(submission), {
+      access: "public",
+      contentType: "application/json",
+      token: process.env.BLOB_READ_WRITE_TOKEN,
+    });
 
     return NextResponse.json({ ok: true });
   } catch (err) {

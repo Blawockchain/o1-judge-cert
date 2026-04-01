@@ -1,4 +1,4 @@
-import { createClient } from "@supabase/supabase-js";
+import { list } from "@vercel/blob";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
@@ -7,22 +7,31 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseKey = process.env.SUPABASE_SERVICE_KEY;
-
-  if (!supabaseUrl || !supabaseKey) {
-    return NextResponse.json({ error: "Supabase not configured." }, { status: 500 });
+  if (!process.env.BLOB_READ_WRITE_TOKEN) {
+    return NextResponse.json({ error: "Blob store not configured." }, { status: 500 });
   }
 
-  const supabase = createClient(supabaseUrl, supabaseKey);
-  const { data, error } = await supabase
-    .from("submissions")
-    .select("*")
-    .order("submitted_at", { ascending: false });
+  try {
+    const { blobs } = await list({
+      prefix: "submissions/",
+      token: process.env.BLOB_READ_WRITE_TOKEN,
+    });
 
-  if (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    const submissions = await Promise.all(
+      blobs.map(async (blob) => {
+        const res = await fetch(blob.url);
+        return await res.json();
+      })
+    );
+
+    // Sort newest first
+    submissions.sort((a, b) =>
+      new Date(b.submitted_at).getTime() - new Date(a.submitted_at).getTime()
+    );
+
+    return NextResponse.json({ submissions });
+  } catch (err) {
+    console.error("Admin route error:", err);
+    return NextResponse.json({ error: "Failed to load submissions." }, { status: 500 });
   }
-
-  return NextResponse.json({ submissions: data });
 }
