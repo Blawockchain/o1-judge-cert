@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  icons: {
+    icon: "/favicon.svg",
+  },
   title: "Judgeathon 2026 | Danveer Technologies",
   description:
     "The world's first hackathon whose sole purpose is to get you an O1 visa. No hackers. No teams. Just you, a panel of projects, and an approval letter at the finish line.",
@@ -12,12 +15,19 @@ export const metadata: Metadata = {
     url: "https://judgeathon.danveer.tech",
     siteName: "Judgeathon 2026",
     type: "website",
+    images: [
+      {
+        url: "https://judgeathon.danveer.tech/og-image.png",
+        alt: "Judgeathon 2026 - The World's First Hackathon for O1 Visas",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Judgeathon 2026 | The World's First Hackathon for O1 Visas",
     description:
       "The world's first hackathon whose sole purpose is to get you an O1 visa. No hackers. No teams. Just you, a panel of projects, and an approval letter at the finish line.",
+    images: ["https://judgeathon.danveer.tech/og-image.png"],
   },
 };
 
