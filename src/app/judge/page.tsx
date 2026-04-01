@@ -23,7 +23,7 @@ const CHALLENGES: Challenge[] = [
     question: "Rank these clouds by intelligence.",
     subtext: "This helps us verify you are not a cloud.",
     options: [
-      { id: "a", label: "Cloud A", description: "Cumulus. Confident. Has a newsletter.", img: "https://images.unsplash.com/photo-1504608524841-42584120d693?w=300&h=200&fit=crop" },
+      { id: "a", label: "Cloud A", description: "Cumulus. Confident. Has a newsletter.", img: "https://images.unsplash.com/photo-1561553873-e8491a564fd0?w=300&h=200&fit=crop" },
       { id: "b", label: "Cloud B", description: "Stratus. Overthinks everything. Probably a PM.", img: "https://images.unsplash.com/photo-1517483000871-1dbf64a6e1c6?w=300&h=200&fit=crop" },
       { id: "c", label: "Cloud C", description: "Cumulonimbus. Unhinged. O1 eligible.", img: "https://images.unsplash.com/photo-1534088568595-a066f410bcda?w=300&h=200&fit=crop" },
     ],
@@ -38,7 +38,7 @@ const CHALLENGES: Challenge[] = [
     subtext: "Select all that apply. There is only one correct answer. Or maybe none. We don't know either.",
     options: [
       { id: "a", label: "Kevin", description: "Has been to 14 countries. Mostly airports.", img: "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=300&h=200&fit=crop&q=80" },
-      { id: "b", label: "Priya", description: "Delivered mail pre-internet. Awaiting O1 since 1987.", img: "https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=300&h=200&fit=crop" },
+      { id: "b", label: "Priya", description: "Delivered mail pre-internet. Awaiting O1 since 1987.", img: "https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=300&h=200&fit=crop&crop=top" },
       { id: "c", label: "Chad", description: "Thought leader. Published 3 Medium posts.", img: "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=300&h=200&fit=crop" },
     ],
     answerType: "single",
@@ -296,7 +296,7 @@ export default function JudgePage() {
                           whileHover={{ y: -2, boxShadow: "0 4px 12px rgba(0,40,104,0.1)" }}
                           whileTap={{ scale: 0.98 }}
                         >
-                          {opt.img && <img src={opt.img} alt={opt.label} className="w-full h-36 object-cover" />}
+                          {opt.img && <img src={opt.img} alt={opt.label} className="w-full h-36 object-cover object-top" />}
                           <div className="p-3">
                             <p className="font-bold text-sm text-[#002868]">{opt.label}</p>
                             <p className="text-xs text-gray-400 mt-0.5">{opt.description}</p>
