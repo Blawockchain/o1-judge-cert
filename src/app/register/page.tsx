@@ -27,7 +27,7 @@ export default function RegisterPage() {
   const router = useRouter();
   const [submitting, setSubmitting] = useState(false);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSubmitting(true);
 
@@ -36,12 +36,26 @@ export default function RegisterPage() {
     const name = data.get("name") as string;
     const email = data.get("email") as string;
     const expertise = data.get("expertise") as string;
+    const instagram = data.get("instagram") as string;
+    const experience = data.get("experience") as string;
+    const motivation = data.get("motivation") as string;
 
     // Store in sessionStorage for the judging flow
     sessionStorage.setItem(
       "judge",
       JSON.stringify({ name, email, expertise })
     );
+
+    // Send to backend (fire and forget — don't block UX on this)
+    try {
+      await fetch("/api/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, instagram, expertise, experience, motivation }),
+      });
+    } catch {
+      // Silently fail — user flow continues regardless
+    }
 
     setTimeout(() => {
       router.push("/judge");
