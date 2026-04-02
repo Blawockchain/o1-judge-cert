@@ -25,7 +25,7 @@ const CHALLENGES: Challenge[] = [
     options: [
       { id: "a", label: "Cloud A", description: "Cumulus. Confident. Has a newsletter.", img: "https://images.unsplash.com/photo-1561553873-e8491a564fd0?w=300&h=200&fit=crop" },
       { id: "b", label: "Cloud B", description: "Stratus. Overthinks everything. Probably a PM.", img: "https://images.unsplash.com/photo-1517483000871-1dbf64a6e1c6?w=300&h=200&fit=crop" },
-      { id: "c", label: "Cloud C", description: "Cumulonimbus. Unhinged. O1 eligible.", img: "https://images.unsplash.com/photo-1534088568595-a066f410bcda?w=300&h=200&fit=crop" },
+      { id: "c", label: "Cloud C", description: "Cumulonimbus. Unhinged. 01 eligible.", img: "https://images.unsplash.com/photo-1534088568595-a066f410bcda?w=300&h=200&fit=crop" },
     ],
     answerType: "rank",
     correctHint: "The stormiest cloud always gets the visa.",
@@ -38,7 +38,7 @@ const CHALLENGES: Challenge[] = [
     subtext: "Select all that apply. There is only one correct answer. Or maybe none. We don't know either.",
     options: [
       { id: "a", label: "Kevin", description: "Has been to 14 countries. Mostly airports.", img: "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=300&h=200&fit=crop&q=80" },
-      { id: "b", label: "Priya", description: "Delivered mail pre-internet. Awaiting O1 since 1987.", img: "https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=300&h=200&fit=crop&crop=top" },
+      { id: "b", label: "Priya", description: "Delivered mail pre-internet. Awaiting 01 since 1987.", img: "https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=300&h=200&fit=crop&crop=top" },
       { id: "c", label: "Chad", description: "Thought leader. Published 3 Medium posts.", img: "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=300&h=200&fit=crop" },
     ],
     answerType: "single",
@@ -49,7 +49,7 @@ const CHALLENGES: Challenge[] = [
     type: "rating",
     instruction: "CAPTCHA CHALLENGE 3 OF 5",
     question: "Rate this handshake energy. Be honest.",
-    subtext: "Your O1 application will be partially evaluated based on the accuracy of this rating.",
+    subtext: "Your 01 application will be partially evaluated based on the accuracy of this rating.",
     img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=350&fit=crop",
     criteria: ["Grip Confidence", "Eye Contact (implied)", "Hustle Aura", "Would VC fund these hands?"],
     answerType: "multi-rating",
@@ -78,7 +78,7 @@ const CHALLENGES: Challenge[] = [
     id: 5,
     type: "choice",
     instruction: "CAPTCHA CHALLENGE 5 OF 5",
-    question: "Which of these candidates is most likely to receive an O1?",
+    question: "Which of these candidates is most likely to receive an 01?",
     subtext: "Judge based on vibes alone. Do not think. Trust the process.",
     options: [
       { id: "a", label: "Rajesh", description: "17 YOE. 3 patents. Publishes research. Volunteers.", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" },
@@ -406,7 +406,7 @@ export default function JudgePage() {
                     ? "Processing your stupidity..."
                     : current < CHALLENGES.length - 1
                     ? "Next Challenge"
-                    : "Submit & Claim O1"}
+                    : "Submit & Claim 01"}
                   {!submitting && <IconArrow size={16} color="white" />}
                 </motion.button>
               </div>

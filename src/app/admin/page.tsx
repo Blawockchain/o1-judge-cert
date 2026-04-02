@@ -140,7 +140,7 @@ export default function AdminPage() {
                 <th className="px-4 py-3 text-left">Instagram</th>
                 <th className="px-4 py-3 text-left">Expertise</th>
                 <th className="px-4 py-3 text-left">Exp (yrs)</th>
-                <th className="px-4 py-3 text-left">Why O1?</th>
+                <th className="px-4 py-3 text-left">Why 01?</th>
                 <th className="px-4 py-3 text-left">Submitted</th>
               </tr>
             </thead>

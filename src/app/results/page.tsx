@@ -82,7 +82,7 @@ export default function ResultsPage() {
 
   async function shareTwitter() {
     const text = encodeURIComponent(
-      `I just got approved for the O1. My extraordinary ability has been officially recognised by Dunki Technologies. https://judgeathon.devfolio.co`
+      `I just got approved for the 01. My extraordinary ability has been officially recognised by Dunki Technologies. https://judgeathon.devfolio.co`
     );
     
     // Generate certificate image as PNG
@@ -162,8 +162,8 @@ Your participation in the Dunki Judgeathon 2026 has been assessed and found to d
   - Demonstration of field expertise and analytical ability
 
 In recognition of this achievement, you are entitled to:
-  - One (1) O1 Extraordinary Recommendation Letter
-  - One (1) 🧊 Airways Return Flight to San Francisco (Seat O1-A)
+  - One (1) 01 Extraordinary Recommendation Letter
+  - One (1) 🧊 Airways Return Flight to San Francisco (Seat 01-A)
   - One (1) Certificate of Extraordinary Ability
 
 This notice is valid until April 2, 2026.
@@ -177,7 +177,7 @@ Dunki Technologies, Inc.`;
 
       doc.setFontSize(6);
       doc.text(
-        "This is a fictional document issued for entertainment purposes only. Dunki Technologies is not a government agency. No actual O1 or legal status is granted.",
+        "This is a fictional document issued for entertainment purposes only. Dunki Technologies is not a government agency. No actual 01 or legal status is granted.",
         105, 285, { align: "center" }
       );
 
@@ -205,7 +205,7 @@ Dunki Technologies, Inc.`;
       doc.text("Date: April 2, 2026", 20, by + 30);
       doc.text("Flight: DUNKI-0402", 20, by + 40);
       doc.text("Class: Extraordinary", 20, by + 50);
-      doc.text("Seat: O1-A", 20, by + 60);
+      doc.text("Seat: 01-A", 20, by + 60);
       doc.text(`Confirmation: ${caseNumber}`, 20, by + 70);
       doc.text("Sponsored by: Dunki Technologies, Inc.", 20, by + 80);
 
@@ -405,8 +405,8 @@ Reference: ${caseNumber}`;
             </p>
             <p>Your recognition entitles you to the following:</p>
             <ul className="list-none space-y-2 pl-2">
-              <li className="flex items-center gap-2"><IconPrizes size={18} color="#f5c400" /> <strong>O1 Extraordinary</strong> issued by Dunki Technologies</li>
-              <li className="flex items-center gap-2"><IconArrow size={18} color="#002868" /> <strong>🧊 Airways Return Flight</strong> to San Francisco (Seat O1-A, Class: Extraordinary)</li>
+              <li className="flex items-center gap-2"><IconPrizes size={18} color="#f5c400" /> <strong>01 Extraordinary</strong> issued by Dunki Technologies</li>
+              <li className="flex items-center gap-2"><IconArrow size={18} color="#002868" /> <strong>🧊 Airways Return Flight</strong> to San Francisco (Seat 01-A, Class: Extraordinary)</li>
               <li className="flex items-center gap-2"><IconCertificate size={18} color="#002868" /> <strong>Certificate of Extraordinary Ability</strong> suitable for framing</li>
               <li className="flex items-center gap-2"><IconPrizes size={18} color="#B22234" /> <strong>$401,000 offer letter</strong> allocated for your sponsored position, SF</li>
             </ul>
@@ -461,8 +461,8 @@ Reference: ${caseNumber}`;
             variants={stagger}
           >
             {[
-              { title: "🧊 Airways Return Flight", desc: "Return · SFO · Seat O1-A", Icon: IconArrow },
-              { title: "O1 Letter", desc: "Extraordinary ability recognized", Icon: IconPrizes },
+              { title: "🧊 Airways Return Flight", desc: "Return · SFO · Seat 01-A", Icon: IconArrow },
+              { title: "01 Letter", desc: "Extraordinary ability recognized", Icon: IconPrizes },
               { title: "$401K Offer", desc: "San Francisco · Dunki HQ", Icon: IconCertificate },
             ].map((perk) => (
               <motion.div

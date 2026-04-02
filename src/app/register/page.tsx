@@ -114,7 +114,7 @@ export default function RegisterPage() {
                 <IconPrizes size={28} color="#f5c400" />
               </div>
               <div>
-                <p className="font-semibold text-white">O1 Extraordinary</p>
+                <p className="font-semibold text-white">01 Extraordinary</p>
                 <p className="text-blue-300 text-xs">Issued by Dunki Technologies</p>
               </div>
             </motion.li>
@@ -124,7 +124,7 @@ export default function RegisterPage() {
               </div>
               <div>
                 <p className="font-semibold text-white">🧊 Airways Return Flight</p>
-                <p className="text-blue-300 text-xs">Seat O1-A · SFO · Class: Extraordinary</p>
+                <p className="text-blue-300 text-xs">Seat 01-A · SFO · Class: Extraordinary</p>
               </div>
             </motion.li>
             <motion.li variants={fadeUp} className="flex items-start gap-3">
@@ -251,13 +251,13 @@ export default function RegisterPage() {
 
             <motion.div variants={fadeUp}>
               <label className="block text-xs font-medium text-slate-500 mb-1.5">
-                Why do you want O1?
+                Why do you want 01?
               </label>
               <textarea
                 name="motivation"
                 rows={3}
                 className="input-field resize-none"
-                placeholder="Tell us why you want O1..."
+                placeholder="Tell us why you want 01..."
               />
             </motion.div>
 
@@ -270,7 +270,7 @@ export default function RegisterPage() {
               />
               <label className="text-xs text-gray-500 leading-relaxed">
                 I consent to visa sponsorship consideration and acknowledge that
-                my judging performance will be evaluated as part of the O1
+                my judging performance will be evaluated as part of the 01
                 extraordinary ability assessment. *
               </label>
             </motion.div>

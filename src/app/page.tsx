@@ -24,10 +24,10 @@ function FAQSection() {
   const faqs = [
     { q: "What exactly is a Judgeathon?", a: "A hackathon where there are no hackers only judges. You compete by completing absurd challenges. Your score, speed, and commentary determine your rank." },
     { q: "Do I need to code anything?", a: "Absolutely not. You just need strong opinions and the ability to rate clouds by intelligence. Extraordinary ability not required but it helps." },
-    { q: "Is the O1 real?", a: "The letter is incredibly real-looking. The O1 is not. This expires April 2, 2026 for a reason." },
+    { q: "Is the 01 real?", a: "The letter is incredibly real-looking. The 01 is not. This expires April 2, 2026 for a reason." },
     { q: "Who is Dunki Technologies?", a: "A distinguished technology firm with deep expertise in extraordinary ability assessment, institutional recognition, and April programming." },
     { q: "Can I share my results?", a: "You are strongly encouraged to tweet your approval letter. The more people who see it, the more extraordinary you become." },
-    { q: "Why are you doing this?", a: "Our founders get a lot of DMs to add them as judges so they can show it in their O1. We've cut all middle men to make this possible for everyone to get O1." },
+    { q: "Why are you doing this?", a: "Our founders get a lot of DMs to add them as judges so they can show it in their 01. We've cut all middle men to make this possible for everyone to get 01." },
   ];
 
   return (
@@ -115,7 +115,7 @@ export default function Home() {
 
               <motion.p variants={fadeUp} className="text-xl text-gray-600 max-w-2xl mx-auto text-center mb-3 leading-relaxed">
                 No hackers. No teams. No code.<br/>
-                Just you, your judgements and an O1 letter waiting at the finish line.
+                Just you, your judgements and an 01 letter waiting at the finish line.
               </motion.p>
 
               <motion.p variants={fadeUp} className="text-center font-mono-accent text-xs tracking-widest uppercase text-gray-400 mb-10">
@@ -173,7 +173,7 @@ export default function Home() {
               {[
                 { step: "01", title: "Register", desc: "Submit credentials. Our team waits you make 48 hours.", Icon: IconRegister },
                 { step: "02", title: "Hack as a Judge", desc: "Evaluate 5 absurd challenges. Score fast. This is your hack.", Icon: IconJudge },
-                { step: "03", title: "Collect Your O1", desc: "Complete evaluations and receive your approval letter + 🧊 Airways return flight included.", Icon: IconCertificate },
+                { step: "03", title: "Collect Your 01", desc: "Complete evaluations and receive your approval letter + 🧊 Airways return flight included.", Icon: IconCertificate },
               ].map((s) => (
                 <motion.div key={s.step} variants={fadeUp} className="card">
                   <div className="flex items-start gap-4">
@@ -199,7 +199,7 @@ export default function Home() {
             </motion.div>
             <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-6" initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}>
               {[
-                { rank: "1st Place", title: "O1 Extraordinary", desc: "Extraordinary ability letter + $401K offer, San Francisco. 🧊 Airways return flight included.", accent: "border-t-[#f5c400]", iconColor: "#f5c400" },
+                { rank: "1st Place", title: "01 Extraordinary", desc: "Extraordinary ability letter + $401K offer, San Francisco. 🧊 Airways return flight included.", accent: "border-t-[#f5c400]", iconColor: "#f5c400" },
                 { rank: "2nd Place", title: "Entry Through Dunki Roadways", desc: "Specialty occupation sponsorship + 3-year initial period + employer-of-record setup.", accent: "border-t-[#002868]", iconColor: "#002868" },
                 { rank: "3rd Place", title: "Largely Mental", desc: "Largely mental + pathway to red card. Valid while supplies last.", accent: "border-t-[#B22234]", iconColor: "#B22234" },
               ].map((p) => (

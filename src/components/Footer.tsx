@@ -52,7 +52,7 @@ export default function Footer() {
       <div className="bg-[#001a4d] text-blue-300 px-6 py-4">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2 text-xs font-mono-accent tracking-wide">
           <p>© 2026 Dunki Technologies, Inc. All rights reserved.</p>
-          <p>For entertainment only. No actual O1, flights, or asylum claims provided. Expires April 2, 2026.</p>
+          <p>For entertainment only. No actual 01, flights, or asylum claims provided. Expires April 2, 2026.</p>
         </div>
       </div>
     </footer>
